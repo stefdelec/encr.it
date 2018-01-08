@@ -14,7 +14,7 @@ const Md5Hash = (str) => {
     return (
         <div>
             <input id='myInput' value={hashIt(str)} />
-            <button onClick={() => copyPast()}>Copy</button>
+            <button className="btn-big" onClick={() => copyPast()}>Copy</button>
         </div>
     )
 }
