@@ -16,10 +16,15 @@ class App extends Component {
   }
   render() {
     return (
-      <div className="App">
-        <h1>Enter the key to be encoded in md5</h1>
-        {Input(this.change)}
-        {Md5Hash(this.state.value)}
+      <div className="container">
+        <div className='row'>
+          <div className='col-12'>
+            {Input(this.change)}
+          </div>
+          <div className='col-12'>
+            {Md5Hash(this.state.value)}
+          </div>
+        </div>
       </div>
     );
   }

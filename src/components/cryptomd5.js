@@ -1,5 +1,6 @@
 import React from 'react'
 import * as crypto from 'crypto'
+import { setTimeout } from 'timers';
 
 const Md5Hash = (str) => {
     const hashIt = (key) => {
@@ -10,12 +11,20 @@ const Md5Hash = (str) => {
         copyText.select();
         document.execCommand("Copy");
     };
-
     return (
-        <div>
-            <input id='myInput' value={hashIt(str)} />
-            <button className="btn-big" onClick={() => copyPast()}>Copy</button>
+        <div className="row">
+            <div className="col-12">
+                <button onClick={() => copyPast()} class="btn btn-lg btn-primary">COPY</button>
+            </div>
+            <div className="col-12">
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Your next password (copy to use it)</label>
+                    <input type="text" value={hashIt(str)} class="form-control" id="myInput" placeholder="Your Next-password" />
+                </div>
+            </div>
+
         </div>
+
     )
 }
 
