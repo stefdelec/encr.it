@@ -2,9 +2,9 @@ import React from 'react'
 
 const Input = (change) => {
     return (
-        <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type='password' onChange={change} class="form-control" id="exampleInputPassword1" placeholder="Your Password" />
+        <div className="form-group">
+            <label htmlFor="inputPassword">Password</label>
+            <input type='password' onChange={change} className="form-control" id="inputPassword" placeholder="Your Password" />
         </div>
 
     )

@@ -17,19 +17,26 @@ class App extends Component {
   }
   render() {
     return (
-      <div className="container">
-        <div className='row'>
-          <div className='col-12'>
-            {Input(this.change)}
-          </div>
-          <div className='col-12'>
-            {Md5Hash(this.state.value)}
-          </div>
-          <div className='col-12'>
-            {SpecialHash(this.state.value)}
+      <form>
+        <div className="container">
+          <div className='row'>
+            <div className='col-12'>
+              {Input(this.change)}
+              <hr />
+            </div>
+            <div className='col-12'>
+              {Md5Hash(this.state.value)}
+              <hr />
+
+            </div>
+            <div className='col-12'>
+              {SpecialHash(this.state.value)}
+              <hr />
+
+            </div>
           </div>
         </div>
-      </div>
+      </form>
     );
   }
 }

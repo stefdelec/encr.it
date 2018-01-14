@@ -7,19 +7,20 @@ const SpecialHash = (str) => {
     }
 
     const copyPast = () => {
-        var copyText = document.getElementById("myInput");
+        var copyText = document.getElementById(idKey);
         copyText.select();
         document.execCommand("Copy");
     };
+    const idKey='zefefjknzekcjnzec'
     return (
         <div className="row">
             <div className="col-12">
-                <button onClick={() => copyPast()} class="btn btn-lg btn-primary">COPY</button>
+                <button onClick={() => copyPast()} className="btn btn-lg btn-primary">COPY</button>
             </div>
             <div className="col-12">
-                <div class="form-group">
-                    <label for="exampleInputPassword1">MD5=> base64</label>
-                    <input type="text" value={hashIt(str)} class="form-control" id="myInput" placeholder="Your Next-password" />
+                <div className="form-group">
+                    <label htmlFor={idKey}>MD5=> base64</label>
+                    <input readOnly type="text" value={hashIt(str)} className="form-control" id={idKey} placeholder="Your Next-password" />
                 </div>
             </div>
 
