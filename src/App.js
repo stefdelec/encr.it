@@ -8,20 +8,30 @@ import SpecialHash from './components/specialhash';
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { value: 'null' };
+    this.state = { value: 'my amazing easy password', toggle: false };
     this.change = this.change.bind(this);
+    this.toggle = this.toggle.bind(this);
   }
   change(event) {
     // this.setState({value: event.target.value});
     this.setState({ value: event.target.value });
   }
+  toggle() {
+    console.log((!this.state.toggle));
+    this.setState({ toggle: !this.state.toggle });
+    console.log(this.state.toggle);
+  }
   render() {
     return (
-      <form>
         <div className="container">
           <div className='row'>
             <div className='col-12'>
               {Input(this.change)}
+            </div>
+            <div className='col-12'>
+              <button  className="btn btn-info btn-block" onClick={() => this.toggle()}>
+                {this.state.toggle?  this.state.value : 'voir'}
+              </button>
               <hr />
             </div>
             <div className='col-12'>
@@ -36,7 +46,6 @@ class App extends Component {
             </div>
           </div>
         </div>
-      </form>
     );
   }
 }
