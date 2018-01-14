@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Input from "./components/input";
 import Md5Hash from './components/cryptomd5';
+import SpecialHash from './components/specialhash';
 
 class App extends Component {
   constructor(props) {
@@ -23,6 +24,9 @@ class App extends Component {
           </div>
           <div className='col-12'>
             {Md5Hash(this.state.value)}
+          </div>
+          <div className='col-12'>
+            {SpecialHash(this.state.value)}
           </div>
         </div>
       </div>

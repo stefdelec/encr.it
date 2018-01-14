@@ -1,10 +1,11 @@
 import React from 'react'
 import * as crypto from 'crypto'
 
-const Md5Hash = (str) => {
+const SpecialHash = (str) => {
     const hashIt = (key) => {
-        return crypto.createHash('md5').update(key).digest("hex");;
+        return btoa(crypto.createHash('md5').update(key).digest("hex"));
     }
+
     const copyPast = () => {
         var copyText = document.getElementById("myInput");
         copyText.select();
@@ -17,7 +18,7 @@ const Md5Hash = (str) => {
             </div>
             <div className="col-12">
                 <div class="form-group">
-                    <label for="exampleInputPassword1">md5</label>
+                    <label for="exampleInputPassword1">MD5=> base64</label>
                     <input type="text" value={hashIt(str)} class="form-control" id="myInput" placeholder="Your Next-password" />
                 </div>
             </div>
@@ -27,4 +28,4 @@ const Md5Hash = (str) => {
     )
 }
 
-export default Md5Hash
+export default SpecialHash
