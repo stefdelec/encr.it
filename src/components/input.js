@@ -1,10 +1,10 @@
 import React from 'react'
 
-const Input = (change) => {
+const Input = (change,type) => {
     return (
-        <div className="form-group">
+    <div className="form-group">
             <label htmlFor="inputPassword">Password</label>
-            <input type='password' onChange={change} className="form-control" id="inputPassword" placeholder="Your Password" />
+            <input type="password" onChange={change} className="form-control" id="inputPassword" placeholder="Your Password" />
         </div>
 
     )
