@@ -1,25 +1,37 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import './App.css';
 import Input from "./components/input";
 import * as crypto from 'crypto'
 import CopyPasteInput from "./components/copy-paste-input";
 
+const initialState = { value: '', timestamp: Date.now(), toggle: false };
+
 class App extends Component {
     constructor(props) {
         super(props);
-        this.state = {value: 'my amazing easy password', toggle: false};
+        this.state =initialState;
         this.change = this.change.bind(this);
         this.toggle = this.toggle.bind(this);
     }
 
+    launchTimer = () => {
+        console.log('clearing')
+        if (this.timer) {
+            clearTimeout(this.timer);
+        }
+        this.timer = setTimeout(() => {
+            this.setState(initialState);
+            console.log('reset')
+        }, 30000)
+    }
     change(event) {
-        // this.setState({value: event.target.value});
-        this.setState({value: event.target.value});
+        this.setState({ value: event.target.value, timestamp: Date.now() });
+        this.launchTimer();
     }
 
 
     toggle() {
-        this.setState({toggle: !this.state.toggle});
+        this.setState({ toggle: !this.state.toggle });
     }
 
     md5(key) {
@@ -32,27 +44,27 @@ class App extends Component {
 
     render() {
         return (
-            <div className="container">
+            <div className="container" onClick={this.launchTimer}>
                 <div className='row'>
                     <div className='col-12'>
-                        {Input(this.change)}
+                        <Input change={this.change} value={this.state.value} />
                     </div>
                     <div className='col-12'>
                         <button className="btn btn-info btn-block" onClick={() => this.toggle()}>
                             {this.state.toggle ? this.state.value : 'voir'}
                         </button>
-                        <hr/>
+                        <hr />
                     </div>
                     <div className='col-12'>
                         <h3>MD5</h3>
                         {CopyPasteInput(this.md5(this.state.value))}
-                        <hr/>
+                        <hr />
 
                     </div>
                     <div className='col-12'>
                         <h3>MD5=>Base64</h3>
                         {CopyPasteInput(this.base64(this.md5(this.state.value)))}
-                        <hr/>
+                        <hr />
                     </div>
                 </div>
             </div>
