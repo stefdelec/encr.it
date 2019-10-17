@@ -9,19 +9,20 @@ const initialState = { value: '', timestamp: Date.now(), toggle: false };
 class App extends Component {
     constructor(props) {
         super(props);
-        this.state =initialState;
+        this.state = initialState;
         this.change = this.change.bind(this);
         this.toggle = this.toggle.bind(this);
     }
 
     launchTimer = () => {
-        console.log('clearing')
         if (this.timer) {
             clearTimeout(this.timer);
         }
         this.timer = setTimeout(() => {
             this.setState(initialState);
-            console.log('reset')
+            setTimeout(() => {
+                document.getElementById('inputPassword').focus();
+            })
         }, 30000)
     }
     change(event) {
